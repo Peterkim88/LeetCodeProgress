@@ -10,18 +10,18 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// var hasCycle = function(head) {
-//     let pos = {};
-//     let current = head;
-//     while(current !== null){
-//         if (pos[current]){
-//             return true;
-//         }
-//         pos[head] = current;
-//         current = head.next;
-//     }
-//     return false;
-// };
+var hasCycle = function(head) {
+    let pos = {};
+    let current = head;
+    while(current !== null && current.pos >= 0){
+        if (pos[current]){
+            return true;
+        }
+        pos[head] = current;
+        current = head.next;
+    }
+    return false;
+};
 
 var hasCycle = function(head) {
     let fast = head;
