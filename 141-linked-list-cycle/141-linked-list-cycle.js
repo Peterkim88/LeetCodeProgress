@@ -13,21 +13,14 @@
 // var hasCycle = function(head) {
 //     let pos = {};
 //     let current = head;
-//     let cycled = false;
-//     let next;
-//     let position;
-//     let currentPos = 1;
-//     while(current !== null && cycled === false){
-//         if (pos.includes(position)){
-//             cycled = true;
-//             return cycled;
+//     while(current !== null){
+//         if (pos[current]){
+//             return true;
 //         }
-//         current.position = currentPos;
-//         currentPos += 1;
-//         next = current.next;
-//         current = next;
+//         pos[head] = current;
+//         current = head.next;
 //     }
-//     return cycled;
+//     return false;
 // };
 
 var hasCycle = function(head) {
