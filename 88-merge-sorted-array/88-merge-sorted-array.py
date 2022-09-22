@@ -3,26 +3,25 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-#         l = 0
-#         r = 0
-#         tmp = nums1[l]
-#         while l <= len(nums1):
-#             subtemp = nums1[l]
-#             nums1[l] = tmp
-#             if r < len(nums2) and nums2[r] < nums1[l] and nums2[r] < subtemp:
-                
-                
-#                 subtemp = nums1[l]
-#                 nums1[l] = tmp
-#                 tmp = subtemp
-#             else:
-#                 tmp = nums1[l]
-#                 nums1[l] = nums2[r]
-#                 r += 1
-#             l += 1
-#         return nums1
-        l = len(nums1)-1
-        for i in range(len(nums2)-1, -1, -1):
-            nums1[l] = nums2[i]
-            l -= 1
-        return nums1.sort()
+        # l = len(nums1)-1
+        # for i in range(len(nums2)-1, -1, -1):
+        #     nums1[l] = nums2[i]
+        #     l -= 1
+        # return nums1.sort()
+        last = m + n - 1
+        
+        while m > 0 and n > 0:
+            if nums1[m-1] > nums2[n-1]:
+                nums1[last] = nums1[m-1]
+                m -= 1
+            else:
+                nums1[last] = nums2[n-1]
+                n -= 1
+            last -= 1
+        
+        while n > 0:
+            nums1[last] = nums2[n-1]
+            n -= 1
+            last -= 1
+            
+        return nums1
