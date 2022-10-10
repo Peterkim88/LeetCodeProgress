@@ -1,5 +1,5 @@
 class Solution:
-    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:            
         c = Counter(nums1)
         res = []
         
