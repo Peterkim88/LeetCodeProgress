@@ -3,11 +3,13 @@ class Solution:
         res = []
         
         for n in range(1, n+1):
-            if n % 5 == 0 and n % 3 == 0:
+            div3 = (n % 3 == 0)
+            div5 = (n % 5 == 0)
+            if div5 and div3:
                 res.append("FizzBuzz")
-            elif n % 3 == 0:
+            elif div3:
                 res.append("Fizz")
-            elif n % 5 == 0:
+            elif div5:
                 res.append("Buzz")
             else:
                 res.append(str(n))
