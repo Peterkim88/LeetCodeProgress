@@ -1,12 +1,14 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        isoS = {}
-        isoT = {}
+        sMap = {}
+        tMap = {}
+        
         for i in range(len(s)):
-            if not s[i] in isoS:
-                isoS[s[i]] = t[i]
-            if not t[i] in isoT:
-                isoT[t[i]] = s[i]
-            if isoS[s[i]] != t[i] or isoT[t[i]] != s[i]:
+            sChar = s[i]
+            tChar = t[i]
+            sMap[sChar] = sMap.get(sChar, tChar)
+            tMap[tChar] = tMap.get(tChar, sChar)
+            if sMap[sChar] != tChar or tMap[tChar] != sChar:
                 return False
+            
         return True
